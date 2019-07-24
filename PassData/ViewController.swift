@@ -14,10 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var fnTF: UITextField!
     @IBOutlet weak var lnTF: UITextField!
     
-    
-    var fname = ""
-    var lname = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,15 +22,13 @@ class ViewController: UIViewController {
 
     @IBAction func enterBtn(_ sender: Any) {
         
-        self.fname = fnTF.text!
-        self.lname = lnTF.text!
         performSegue(withIdentifier: "nameSeg", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var vc = segue.destination as! NameViewController
-        vc.fName = self.fname
-        vc.lName = self.lname
+        vc.fName = fnTF.text!
+        vc.lName = lnTF.text!
     }
 }
 
